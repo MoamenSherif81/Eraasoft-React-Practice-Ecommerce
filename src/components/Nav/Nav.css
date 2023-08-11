@@ -1,0 +1,7 @@
+.nav{
+  background-color: #ccc;
+}
+
+.nav__link.active{
+  border-bottom: 1px solid black;
+}

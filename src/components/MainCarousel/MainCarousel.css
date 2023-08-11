@@ -1,0 +1,6 @@
+.main-carousel__item{
+  height: 600px;
+}
+.main-carousel__item img{
+  object-fit: cover;
+}

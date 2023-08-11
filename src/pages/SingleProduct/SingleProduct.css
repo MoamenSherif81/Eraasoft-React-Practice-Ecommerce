@@ -1,0 +1,30 @@
+.single__product-img{
+  flex-shrink: 1;
+}
+
+.single__product-quantity{
+  width: fit-content;
+  text-align: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.single__product-quantity input{  
+  text-align: center;
+  width: 60px;
+}
+
+.single__product-quantity-btn{
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 767px) {
+  .single__product-quantity,
+  .single__product-quantity input,
+  .single__product-add-to-cart{
+    width: 100%;
+  }
+}
