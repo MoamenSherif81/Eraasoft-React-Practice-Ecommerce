@@ -4,13 +4,11 @@ import { PropTypes } from 'prop-types';
 
 export default function ProductsCategories(props) {
   const [categories, setCategories] = useState([]);
-
+  
   useEffect(() => {
-    fetch('http://localhost:3000/categories')
+    fetch('http://localhost:3004/categories')
       .then(res => res.json())
-      .then(data => {
-        setCategories(data);
-      })
+      .then(data => setCategories(data))
   }, [])
 
   return (
@@ -21,9 +19,4 @@ export default function ProductsCategories(props) {
       })}
     </div>
   )
-}
-
-ProductsCategories.propTypes = {
-  setCurrCategory: PropTypes.func,
-  setProducts: PropTypes.func,
 }
