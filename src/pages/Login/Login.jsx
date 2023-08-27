@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { login } from '../../rtk/slices/authSlice';
+import { getCartData } from '../../rtk/slices/cartSlice';
 
 export default function Login() {
   const [formData, setFormData] = useState({
@@ -23,8 +24,11 @@ export default function Login() {
 
   function handleLogin(){
     const obj = users.find(user => user.email == formData.email && user.password == formData.password);
+    console.log(users);
+    console.log(obj);
     if(obj){
       dispatch(login(obj.id))
+      dispatch(getCartData(obj.id));
     } else {
       console.log('Wrong username or password');
     }

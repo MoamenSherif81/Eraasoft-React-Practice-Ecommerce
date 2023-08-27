@@ -1,6 +1,6 @@
 import { Button, Container, Form } from "react-bootstrap";
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 
 export default function Register() {
@@ -10,6 +10,7 @@ export default function Register() {
     password: "",
     confirmPassword: "",
   });
+  const navigator = useNavigate();
 
   function handleAddUser(data){
     fetch('http://localhost:3004/users', {
@@ -19,6 +20,7 @@ export default function Register() {
       },
       body: JSON.stringify(data)
     })
+    navigator('/login')
   }
   
   function submitHandler(e) {

@@ -615,6 +615,13 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "fullName": "Moamen Sherif Sadek",
+      "email": "moamen@gmail.com",
+      "password": "moamen123",
+      "id": 2,
+      "cart": []
     }
   ]
 }

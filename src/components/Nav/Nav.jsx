@@ -22,7 +22,7 @@ export default function Navb() {
           <Nav className="me-auto d-flex justify-content-between w-100">
           {isAuth ? 
             <div className='d-flex justify-content-between gap-2 align-items-center justify-content-between w-100'>
-              <div className='d-flex gap-2'>
+              <div className='d-flex gap-4'>
                 <NavLink className='nav__link text-decoration-none text-black' to='/'>Home</NavLink>
                 <NavLink className='nav__link text-decoration-none text-black' to='/products'>Shop</NavLink>
                 <NavLink className='nav__link text-decoration-none text-black' to='/cart'>Cart</NavLink>
