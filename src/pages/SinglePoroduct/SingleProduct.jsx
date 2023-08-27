@@ -13,7 +13,7 @@ export default function SingleProduct() {
     fetch('http://localhost:3004/products/' + prodId)
       .then(res => res.json())
       .then(data => setProduct(data))
-  }, [])
+  }, [prodId])
 
   const handleIncreaseQuantity = () => {
     setQuantity((prev) => {

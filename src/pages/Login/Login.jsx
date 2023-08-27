@@ -17,7 +17,7 @@ export default function Login() {
           <Form.Control type="password" placeholder="Password" />
         </Form.Group>
         <div className="mb-3">
-          Don't Have and account? <Link to='/register'>Create new account</Link>
+          Don{"'"}t Have and account? <Link to='/register'>Create new account</Link>
         </div>
         <div className='d-flex align-items-center justify-content-between'>
           <Form.Group controlId="formBasicCheckbox">

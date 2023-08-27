@@ -1,31 +1,26 @@
 import { Container } from "react-bootstrap";
 import ProductsList from "../components/ProductsList/ProductsList";
-import ProductsCategories from './../components/ProductsCategories/ProductsCategories';
 import { useEffect, useState } from "react";
+import ProductsFilter from "../components/ProductsFilter/ProductsFilter";
 
 export default function Shop() {
   const [products, setProducts] = useState([]);
-  const [currCategory, setCurrCategory] = useState('');
+  const [currPage, setCurrPage] = useState(1);
 
   useEffect(() => {
-    if(currCategory == ''){
-      fetch('http://localhost:3004/products')
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    } else {
-      fetch('http://localhost:3004/products?category=' + currCategory)
-        .then(res => res.json())
-        .then(data => setProducts(data))
-    }
-
-  }, [currCategory])
+    fetch(`http://localhost:3004/products`)
+      .then(res => res.json())
+      .then(data => setProducts(data))
+  }, [])
 
   return (
     <div>
       <Container className='my-5'>
-        <ProductsCategories setCurrCategory={setCurrCategory} />
-        <ProductsList products={products} /> 
+        <ProductsFilter setCurrPage={setCurrPage} setProducts={setProducts} />
+        <ProductsList currPage={currPage} setCurrPage={setCurrPage} products={products} /> 
       </Container>
     </div>
   )
 }
+
+//url parameters
