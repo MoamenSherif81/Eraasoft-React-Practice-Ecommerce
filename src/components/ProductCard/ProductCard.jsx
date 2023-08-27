@@ -3,8 +3,16 @@ import './ProductCard.css'
 import PropTypes from 'prop-types';
 import { FaHeart } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { addItem, updateCartData } from '../../rtk/slices/cartSlice';
 
 export default function ProductCard(props) {
+  const dispatch = useDispatch();
+
+  function handleAddtoCart(){
+    dispatch(addItem(props.product))
+  }
+
   return (
     <Col md={4} lg={3} className='mb-4'>
       <Card className='h-100'>
@@ -17,7 +25,7 @@ export default function ProductCard(props) {
             </Card.Text>
           </div>
           <div className='d-flex gap-3'>
-            <Button variant="primary" className='w-100'>Add to cart</Button>
+            <Button variant="primary" className='w-100' onClick={handleAddtoCart}>Add to cart</Button>
             <Button variant="danger" className='text-white d-flex align-items-center'><FaHeart /></Button>
           </div>
         </Card.Body>

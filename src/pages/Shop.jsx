@@ -6,7 +6,7 @@ import ProductsFilter from "../components/ProductsFilter/ProductsFilter";
 export default function Shop() {
   const [products, setProducts] = useState([]);
   const [currPage, setCurrPage] = useState(1);
-
+  
   useEffect(() => {
     fetch(`http://localhost:3004/products`)
       .then(res => res.json())

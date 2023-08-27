@@ -1,7 +1,20 @@
 import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { decreaseQuantity, increaseQuantity, removeItem } from '../../rtk/slices/cartSlice';
 
 export default function CartProduct(props) {
+  const dispatch = useDispatch();
 
+  function handleRemoveProduct(){
+    dispatch(removeItem(props.product.id))
+  }
+
+  function handleIncreaseQuantity(){
+    dispatch(increaseQuantity(props.product.id))
+  }
+  function handleDecreaseQuantity(){
+    dispatch(decreaseQuantity(props.product.id))
+  }
 
   return (
     <tr className="cart-product">
@@ -14,16 +27,16 @@ export default function CartProduct(props) {
 
     <td>
       <div className="cart-product-amount px-2">
-        <span className="change-amount change-amount-inc">+</span>
-        <span className="quantity">3</span>
-        <span className="change-amount change-amount-dec">-</span>
+        <span className="change-amount change-amount-inc" onClick={handleIncreaseQuantity}>+</span>
+        <span className="quantity">{props.product.quantity}</span>
+        <span className="change-amount change-amount-dec" onClick={handleDecreaseQuantity}>-</span>
       </div>
     </td>
 
     <td>
       <div className="mb-2 d-flex flex-column text-end justify-content-end align-items-end">
         <span className="fw-bolder fs-4">${props.product.price}</span>
-        <span className="remove-product">Remove</span>
+        <span className="remove-product" onClick={handleRemoveProduct}>Remove</span>
       </div>
     </td>
   </tr>
